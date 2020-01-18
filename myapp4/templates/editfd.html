@@ -1,0 +1,86 @@
+{% extends  'masteradmin.html' %}
+
+      <!-- Basic Form Start -->
+      <!-- Basic Form Start -->
+{% block contents%}
+ <!-- Register Start-->
+ <div class="basic-form-area mg-b-15">
+                <div class="container-fluid">
+            <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sparkline12-list shadow-reset mg-t-30">
+                                <div class="sparkline12-hd">
+                                    <div class="main-sparkline12-hd">
+                                        <h1>Field Form</h1>
+                                        <div class="sparkline12-outline-icon">
+                                            <span class="sparkline12-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                                            <span><i class="fa fa-wrench"></i></span>
+                                            <span class="sparkline12-collapse-close"><i class="fa fa-times"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sparkline12-graph">
+                                    <div class="basic-login-form-ad">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="all-form-element-inner">
+                                                    <form action="upfd/{{efd.id}}"  method="POST">
+                                                        {% csrf_token %}
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <label class="login2 pull-right pull-right-pro">Field Name</label>
+                                                                </div>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" class="form-control" name="fname" value="{{efd.fname}}" required />
+                                                                </div>
+
+                                                                    <!--  <input type="submit">-->
+                                                            </div>
+                                                        </div>
+                                            <div class="form-group-inner">
+
+
+
+                                                        <div class="form-group-inner">
+                                                            <div class="login-btn-inner">
+                                                                <div class="row">
+                                                                    <div class="col-lg-3"></div>
+
+                                                                            <button class="btn btn-white" type="submit">Cancel</button>
+                                                                            <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save</button>
+                                                                        </div>
+
+            </div>
+            </div></form></div>                                    <table id="table" data-toggle="table" datapagesize="true" data-pagination="true" data-search="true" data-show-pagination-switch="true"  data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" >
+                                              <thead>  
+        <tr>  
+            <th>ID</th>   
+            <th>Faculty Name</th>  
+             <th>Edit</th>  
+             <th>Delete</th>  
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for fd in fshow %}  
+        <tr>  
+            <td>{{ fd.id }}</td>  
+            <td>{{ fd.fname }}</td>  
+                    <td> <a href="/editfd/{{ fd.id }}">Edit</a>  </td>
+               <td> <a href="/delfd/{{ fd.id }}">Delete</a>   </td>  
+        </tr>  {% endfor %}  
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                </div>
+
+            </div>
+        </div>
+    <!-- Footer Start-->
+  {% endblock%}

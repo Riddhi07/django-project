@@ -1,0 +1,143 @@
+{% extends  'masteradmin.html' %}
+
+      <!-- Basic Form Start -->
+      <!-- Basic Form Start -->
+{% block contents%}
+ <!-- Register Start-->
+ <div class="basic-form-area mg-b-15">
+                <div class="container-fluid">
+            <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sparkline12-list shadow-reset mg-t-30">
+                                <div class="sparkline12-hd">
+                                    <div class="main-sparkline12-hd">
+                                        <h1>option Form</h1>
+                                        <div class="sparkline12-outline-icon">
+                                            <span class="sparkline12-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                                            <span><i class="fa fa-wrench"></i></span>
+                                            <span class="sparkline12-collapse-close"><i class="fa fa-times"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sparkline12-graph">
+                                    <div class="basic-login-form-ad">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="all-form-element-inner">
+                                                     <form action="#"  method="POST">
+
+                                                         {% csrf_token %}
+                                                        
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <label class="login2 pull-right pull-right-pro">label</label>
+                                                                </div>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" class="form-control" name="fid" required />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <label class="login2 pull-right pull-right-pro">value</label>
+                                                                </div>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" class="form-control" name="fname" required />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                  <!---     <div class="form-group-inner">
+                                                       
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <label class="login2 pull-right pull-right-pro">Class ID</label>
+                                                                </div>
+                                                                <div class="col-lg-9">
+                                                                    <div class="chosen-select-single mg-b-20" >
+
+                                                                        <select   class="select2_demo_3 form-control"  >
+                                                                       <option>--Select--</option>
+                                                                        {% for c in clasform %}
+                                                                        <option value="{{c.classid }}">{{c.course}}</option>
+                                                                        {% endfor %}
+                                                                        </select>
+                                                                        </div></div></div></div>
+                                                                        <div class="form-group-inner">
+                                                       
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <label class="login2 pull-right pull-right-pro">Subject ID</label>
+                                                                </div>
+                                                                
+                                                                <div class="col-lg-9">
+                                                                
+                                                              <div class="chosen-select-single mg-b-20" >
+
+                                                                        <select   class="select2_demo_3 form-control"  >
+                                                                       <option>--Select--</option>
+                                                                        {% for s in subform %}
+                                                                        <option value="{{s.scode }}">{{s.sname}}</option>
+                                                                        {% endfor %}
+                                                                        </select>
+                                                                        </div></div></div></div>
+
+ --->
+
+
+
+
+
+
+
+
+                                                        <div class="form-group-inner">
+                                                            <div class="login-btn-inner">
+                                                                <div class="row">
+                                                                    <div class="col-lg-3"></div>
+
+                                                                            <button class="btn btn-white" type="submit">Cancel</button>
+                                                                            <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save</button>
+                                                                        </div>
+
+            </div>
+            </div></form></div>                                    <table id="table" data-toggle="table" datapagesize="true" data-pagination="true" data-search="true" data-show-pagination-switch="true"  data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" >
+                                              <thead>  
+        <tr>  
+            <th>ID</th>   
+            <th>Faculty Name</th>  
+            <th>Faculty Email</th>  
+            <th>Faculty Contact</th>  
+            <th>Faculty Password</th>  
+             <th>Edit</th>  
+             <th>Delete</th>  
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for f in formshow %}  
+        <tr>  
+            <td>{{ f.fid }}</td>  
+            <td>{{ f.fname }}</td>  
+            <td>{{ f.femail }}</td> 
+            <td>{{ f.fcontact }}</td> 
+            <td>{{ f.fpassword }}</td> 
+                    <td> <a href="/editfac/{{ f.id }}">Edit</a>  </td>
+               <td> <a href="/delfac/{{ f.id }}">Delete</a>   </td>  
+        </tr>  {% endfor %}  
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                </div>
+
+            </div>
+        </div>
+    <!-- Footer Start-->
+  {%endblock%}

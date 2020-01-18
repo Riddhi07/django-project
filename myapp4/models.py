@@ -5,7 +5,11 @@ class Field(models.Model):
     fname=models.CharField(max_length=100)
 
 class Category(models.Model):
+<<<<<<< HEAD
+    pid=models.IntegerField()
+=======
     pid=models.ForeignKey(Field,on_delete=models.CASCADE)
+>>>>>>> c7f1dd2d9e1ebfacced677d5f56ad2f1ee5a60b1
     catname=models.CharField(max_length=100)
 
 class Delievery(models.Model):
@@ -24,7 +28,11 @@ class Material(models.Model):
     value=models.CharField(max_length=100)
 
 class Product(models.Model):
+<<<<<<< HEAD
+    catid=models.CharField(max_length=100)
+=======
     catid=models.ForeignKey(Category,on_delete=models.CASCADE)
+>>>>>>> c7f1dd2d9e1ebfacced677d5f56ad2f1ee5a60b1
     heading=models.CharField(max_length=100)
     subheading=models.CharField(max_length=100)
     actualprice=models.FloatField()
@@ -32,11 +40,19 @@ class Product(models.Model):
     highlight=models.TextField(max_length=500)
     description=models.FilePathField()
     companyname=models.CharField(max_length=200)
+<<<<<<< HEAD
+    ptype=models.CharField(max_length=200)
+    brand=models.CharField(max_length=50)
+    optionid=models.CharField(max_length=100)
+    mid=models.CharField(max_length=100)
+    versionid=models.CharField(max_length=100)
+=======
     type=models.CharField(max_length=200)
     brand=models.CharField(max_length=50)
     optionid=models.ForeignKey(Option,on_delete=models.CASCADE)
     mid=models.ForeignKey(Material,on_delete=models.CASCADE)
     versionid=models.ForeignKey(Variant,on_delete=models.CASCADE)
+>>>>>>> c7f1dd2d9e1ebfacced677d5f56ad2f1ee5a60b1
     availability=models.BooleanField()
     modelno=models.CharField(max_length=100)
 
@@ -48,7 +64,11 @@ class Image(models.Model):
     image5=models.CharField(max_length=200)
     image6=models.CharField(max_length=200)
     image7=models.CharField(max_length=200)
+<<<<<<< HEAD
+    itemid=models.CharField(max_length=100)
+=======
     itemid=models.ForeignKey(Product,on_delete=models.CASCADE)
+>>>>>>> c7f1dd2d9e1ebfacced677d5f56ad2f1ee5a60b1
 
 
 class Paymethod(models.Model):
@@ -72,6 +92,8 @@ class Contact(models.Model):
     subject=models.CharField(max_length=100)
     desc=models.CharField(max_length=255)
 
+<<<<<<< HEAD
+=======
 
 
 
@@ -82,3 +104,4 @@ class Contact(models.Model):
 
 
 
+>>>>>>> c7f1dd2d9e1ebfacced677d5f56ad2f1ee5a60b1
