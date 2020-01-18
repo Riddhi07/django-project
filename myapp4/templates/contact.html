@@ -2,8 +2,7 @@
 
 {% block contents %}
 <!-- Header End====================================================================== -->
-{%load staticfiles%}
-<div id="mainBody">
+{% load static %}<div id="mainBody">
 <div class="container">
 	<hr class="soften">
 	<h1>Visit us</h1>
@@ -35,24 +34,33 @@
         <fieldset>
           <div class="control-group">
            
-              <input type="text" placeholder="name" class="input-xlarge"/>
+             {{form.conname}}
            
           </div>
 		   <div class="control-group">
            
-              <input type="text" placeholder="email" class="input-xlarge"/>
+          {{form.emailid}}
            
           </div>
 		   <div class="control-group">
            
-              <input type="text" placeholder="subject" class="input-xlarge"/>
+           {{form.subject}}
           
           </div>
           <div class="control-group">
-              <textarea rows="3" id="textarea" class="input-xlarge"></textarea>
+              {{form.desc}}
            
           </div>
+			<div class="control-group">
 
+			{{form1.pid}}
+
+				</select>
+          </div>
+			<div class="control-group">
+              {{form1.catname}}
+
+          </div>
             <button class="btn btn-large" type="submit">Send Messages</button>
 
         </fieldset>
