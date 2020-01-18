@@ -13,6 +13,7 @@ urlpatterns =[
     path('delcat/<int:id>',views.delcn),
     path('editcat/<int:id>', views.editcat),
     path('upcat/<int:id>', views.upcat),
+
     path('Delievery/',views.delieverypage,name='delievery'),
     path('Category/',views.Contact,name='category'),
     path('Variant/',views.variantpage,name='variant'),
