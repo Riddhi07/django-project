@@ -36,6 +36,11 @@ urlpatterns =[
 
 
     path('Material/',views.materialpage,name='material'),
+    path('delmt/<int:id>',views.delmt),
+    path('editmt/<int:id>', views.editmt),
+    path('upmt/<int:id>', views.upmt),
+
+
     path('Product/',views.productpage,name='product'),
     path('Contact/',views.contactpage,name='contact'),
     path('Image/',views.imagepage,name='image'),

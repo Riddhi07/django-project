@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant,Option
-from .forms import contactform,categoryform,fieldform,delieveryform,variantform,optionform
+from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant,Option,Material
+from .forms import contactform,categoryform,fieldform,delieveryform,variantform,optionform,materialform
 from django.http import HttpResponse
 """
 def Compair(request):
@@ -283,7 +283,7 @@ def optionpage(request):
         return render(request,'option.html',{'f':f,'fshow':fshow})
     f=optionform()
     fshow=Option.objects.all()
-    return render(request,'variant.html',{'f':f,'fshow':fshow})
+    return render(request,'option.html',{'f':f,'fshow':fshow})
 def delop(request,id):
     dcn=Option.objects.get(id=id)
     dcn.delete()
@@ -315,7 +315,50 @@ def upop(request,id):
 
 
 def materialpage(request):
-    return render(request,'material.html')
+    if request.method=='POST':
+        f=materialform(request.POST)
+        if f.is_valid():
+            try:
+                f.save()
+                #return redirect('field.html')
+            except:
+                pass
+    else:
+        f=materialform()
+        fshow=Material.objects.all()
+        return render(request,'material.html',{'f':f,'fshow':fshow})
+    f=materialform()
+    fshow=Material.objects.all()
+    return render(request,'material.html',{'f':f,'fshow':fshow})
+def delmt(request,id):
+    dcn=Material.objects.get(id=id)
+    dcn.delete()
+    return redirect('/Material')
+def editmt(request,id):
+    if request.method == "POST":
+        edl = Material.objects.get(id=id)
+        form = materialform(request.POST, instance=edl)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/Material')
+            except:
+                pass
+    else:
+        edl = Material.objects.get(id=id)
+        fshow = Material.objects.all()
+        return render(request,'editmt.html',{'edl':edl,'fshow': fshow})
+def upmt(request,id):
+    efd = Material.objects.get(id=id)
+    form = materialform(request.POST,instance=efd)
+    if form.is_valid():
+        try:
+            form.save()
+            return redirect('material')
+        except:
+            pass
+    return render(request, 'editmt.html', {'edl': efd})
+
 def productpage(request):
     return render(request,'product.html')
 def imagepage(request):

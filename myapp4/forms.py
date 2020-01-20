@@ -45,14 +45,14 @@ class optionform(forms.ModelForm):
             'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
             }
 
-# class materialform(forms.ModelForm):
-#     class Meta:
-#         model=Material
-#         fields='__all__'
-#         widgets={
-#             'label':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'label'}),
-#             'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
-#             }
+class materialform(forms.ModelForm):
+    class Meta:
+        model=Material
+        fields='__all__'
+        widgets={
+            'label':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'label'}),
+            'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
+            }
 
 
 # class productform(forms.ModelForm):
