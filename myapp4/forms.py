@@ -19,22 +19,22 @@ class categoryform(forms.ModelForm):
             'catname': forms.TextInput(attrs={'class': 'input-xlarge', 'placeholder': 'catname'})
             }
 
-# class delieveryform(forms.ModelForm):
-#     class Meta:
-#         model=Delievery
-#         fields='__all__'
-#         widgets={
-#             'dtype':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'catname'})
-#             }
+class delieveryform(forms.ModelForm):
+    class Meta:
+        model=Delievery
+        fields='__all__'
+        widgets={
+            'dtype':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'catname'})
+            }
 
-# class variantform(forms.ModelForm):
-#     class Meta:
-#         model=Variant
-#         fields='__all__'
-#         widgets={
-#             'label':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'label'}),
-#             'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
-#             }
+class variantform(forms.ModelForm):
+    class Meta:
+        model=Variant
+        fields='__all__'
+        widgets={
+            'label':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'label'}),
+            'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
+            }
 
 # class optionform(forms.ModelForm):
 #     class Meta:

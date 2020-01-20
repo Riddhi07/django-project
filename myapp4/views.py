@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import Contact,Field,Paymethod,Product,Category
-from .forms import contactform,categoryform,fieldform
+from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant
+from .forms import contactform,categoryform,fieldform,delieveryform,variantform
 from django.http import HttpResponse
 """
 def Compair(request):
@@ -82,6 +82,8 @@ def Index(request):
     return render(request,'index.html')
 def loginpage(request):
     return render(request,'loginad.html')
+
+
 def fieldpage(request):
     if request.method=='POST':
         f=fieldform(request.POST)
@@ -116,7 +118,6 @@ def editfd(request,id):
         efd = Field.objects.get(id=id)
         fshow = Field.objects.all()
         return render(request,'editfd.html',{'efd':efd,'fshow': fshow})
-
 def upfd(request,id):
     efd = Field.objects.get(id=id)
     form = fieldform(request.POST,instance=efd)
@@ -127,6 +128,8 @@ def upfd(request,id):
         except:
             pass
     return render(request, 'editfd.html', {'efd': efd})
+
+
 def categorypage(request):
     if request.method=='POST':
         f=categoryform(request.POST)
@@ -161,7 +164,6 @@ def editcat(request,id):
         ecat = Category.objects.get(id=id)
         fshow = Category.objects.all()
         return render(request,'editcat.html',{'ecat':ecat,'fshow': fshow})
-
 def upcat(request,id):
     efd = Category.objects.get(id=id)
     form = categoryform(request.POST,instance=efd)
@@ -172,10 +174,100 @@ def upcat(request,id):
         except:
             pass
     return render(request, 'editcat.html', {'ecat': efd})
+
+
 def delieverypage(request):
-    return render(request,'delievery.html')
+    if request.method=='POST':
+        f=delieveryform(request.POST)
+        if f.is_valid():
+            try:
+                f.save()
+                #return redirect('field.html')
+            except:
+                pass
+    else:
+        f=delieveryform()
+        fshow=Delievery.objects.all()
+        return render(request,'delievery.html',{'f':f,'fshow':fshow})
+    f=delieveryform()
+    fshow=Delievery.objects.all()
+    return render(request,'delievery.html',{'f':f,'fshow':fshow})
+def deldl(request,id):
+    dcn=Delievery.objects.get(id=id)
+    dcn.delete()
+    return redirect('/Delievery')
+def editdl(request,id):
+    if request.method == "POST":
+        edl = Delievery.objects.get(id=id)
+        form = delieveryform(request.POST, instance=edl)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/Delievery')
+            except:
+                pass
+    else:
+        edl = Delievery.objects.get(id=id)
+        fshow = Delievery.objects.all()
+        return render(request,'editdl.html',{'edl':edl,'fshow': fshow})
+def updl(request,id):
+    efd = Delievery.objects.get(id=id)
+    form = delieveryform(request.POST,instance=efd)
+    if form.is_valid():
+        try:
+            form.save()
+            return redirect('delievery')
+        except:
+            pass
+    return render(request, 'editdl.html', {'edl': efd})
+
+
 def variantpage(request):
-    return render(request,'variant.html')
+    if request.method=='POST':
+        f=variantform(request.POST)
+        if f.is_valid():
+            try:
+                f.save()
+                #return redirect('field.html')
+            except:
+                pass
+    else:
+        f=variantform()
+        fshow=Variant.objects.all()
+        return render(request,'variant.html',{'f':f,'fshow':fshow})
+    f=variantform()
+    fshow=Variant.objects.all()
+    return render(request,'variant.html',{'f':f,'fshow':fshow})
+def delvt(request,id):
+    dcn=Variant.objects.get(id=id)
+    dcn.delete()
+    return redirect('/Variant')
+def editvt(request,id):
+    if request.method == "POST":
+        edl = Variant.objects.get(id=id)
+        form = variantform(request.POST, instance=edl)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/Variant')
+            except:
+                pass
+    else:
+        edl = Variant.objects.get(id=id)
+        fshow = Variant.objects.all()
+        return render(request,'editvt.html',{'edl':edl,'fshow': fshow})
+def upvt(request,id):
+    efd = Variant.objects.get(id=id)
+    form = variantform(request.POST,instance=efd)
+    if form.is_valid():
+        try:
+            form.save()
+            return redirect('variant')
+        except:
+            pass
+    return render(request, 'editvt.html', {'edl': efd})
+
+
 def optionpage(request):
     return render(request,'option.html')
 def materialpage(request):

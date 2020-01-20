@@ -26,7 +26,7 @@
                                                 <div class="all-form-element-inner">
                                                      <form action="#"  method="POST">
 
-                                                         {% csrf_token %}
+                                                         {% csrf_token %}
                                                         
                                                         <div class="form-group-inner">
                                                             <div class="row">
@@ -34,54 +34,15 @@
                                                                     <label class="login2 pull-right pull-right-pro">dtype</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="text" class="form-control" name="fid" required />
+                                                                    <input type="text" class="form-control" name="dtype" required />
                                                                 </div>
+                                                           
+                                                                    <!--  <input type="submit">-->
                                                             </div>
                                                         </div>
-                                                        
-                                                  <!---     <div class="form-group-inner">
+                                            <div class="form-group-inner">
                                                        
-                                                            <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    <label class="login2 pull-right pull-right-pro">Class ID</label>
-                                                                </div>
-                                                                <div class="col-lg-9">
-                                                                    <div class="chosen-select-single mg-b-20" >
-
-                                                                        <select   class="select2_demo_3 form-control"  >
-                                                                       <option>--Select--</option>
-                                                                        {% for c in clasform %}
-                                                                        <option value="{{c.classid }}">{{c.course}}</option>
-                                                                        {% endfor %}
-                                                                        </select>
-                                                                        </div></div></div></div>
-                                                                        <div class="form-group-inner">
-                                                       
-                                                            <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    <label class="login2 pull-right pull-right-pro">Subject ID</label>
-                                                                </div>
-                                                                
-                                                                <div class="col-lg-9">
-                                                                
-                                                              <div class="chosen-select-single mg-b-20" >
-
-                                                                        <select   class="select2_demo_3 form-control"  >
-                                                                       <option>--Select--</option>
-                                                                        {% for s in subform %}
-                                                                        <option value="{{s.scode }}">{{s.sname}}</option>
-                                                                        {% endfor %}
-                                                                        </select>
-                                                                        </div></div></div></div>
-
- --->
-
-
-
-
-
-
-
+                                                           
 
                                                         <div class="form-group-inner">
                                                             <div class="login-btn-inner">
@@ -97,25 +58,19 @@
                                               <thead>  
         <tr>  
             <th>ID</th>   
-            <th>Faculty Name</th>  
-            <th>Faculty Email</th>  
-            <th>Faculty Contact</th>  
-            <th>Faculty Password</th>  
+            <th>dtype</th>  
              <th>Edit</th>  
              <th>Delete</th>  
         </tr>  
         </thead>  
         <tbody>  
-    {% for f in formshow %}  
+    {% for fd in fshow %}  
         <tr>  
-            <td>{{ f.fid }}</td>  
-            <td>{{ f.fname }}</td>  
-            <td>{{ f.femail }}</td> 
-            <td>{{ f.fcontact }}</td> 
-            <td>{{ f.fpassword }}</td> 
-                    <td> <a href="/editfac/{{ f.id }}">Edit</a>  </td>
-               <td> <a href="/delfac/{{ f.id }}">Delete</a>   </td>  
-        </tr>  {% endfor %}  
+            <td>{{ fd.id }}</td>  
+            <td>{{ fd.dtype }}</td>  
+                    <td> <a href="/editdl/{{ fd.id }}">Edit</a>  </td>
+               <td> <a href="/deldl/{{ fd.id }}">Delete</a>   </td>  
+        </tr>  {% endfor %}  
 
                                             </table>
                                         </div>
@@ -130,4 +85,4 @@
             </div>
         </div>
     <!-- Footer Start-->
-  {%endblock%}
+  {% endblock%}

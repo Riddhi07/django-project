@@ -24,7 +24,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="all-form-element-inner">
-                                                     <form action="#"  method="POST">
+                                                     <form action="/upvt/{{edl.id}}"  method="POST">
 
                                                          {% csrf_token %}
                                                         
@@ -34,7 +34,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">label</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="text" class="form-control" name="label" required />
+                                                                    <input type="text" class="form-control" name="label" value="{{edl.label}}" required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -44,7 +44,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">value</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="text" class="form-control" name="value" required />
+                                                                    <input type="text" class="form-control" name="value" value="{{edl.value}}" required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -80,8 +80,8 @@
             <td>{{ fd.id }}</td>  
             <td>{{ fd.label }}</td>
             <td>{{ fd.value }}</td>  
-                    <td> <a href="/editvt/{{ fd.id }}">Edit</a>  </td>
-               <td> <a href="/delvt/{{ fd.id }}">Delete</a>   </td>  
+                    <td> <a href="/editdl/{{ fd.id }}">Edit</a>  </td>
+               <td> <a href="/deldl/{{ fd.id }}">Delete</a>   </td>  
         </tr>  {% endfor %}  
 
                                             </table>
