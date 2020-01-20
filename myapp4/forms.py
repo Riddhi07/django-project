@@ -36,14 +36,14 @@ class variantform(forms.ModelForm):
             'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
             }
 
-# class optionform(forms.ModelForm):
-#     class Meta:
-#         model=Option
-#         fields='__all__'
-#         widgets={
-#             'label':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'label'}),
-#             'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
-#             }
+class optionform(forms.ModelForm):
+    class Meta:
+        model=Option
+        fields='__all__'
+        widgets={
+            'label':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'label'}),
+            'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
+            }
 
 # class materialform(forms.ModelForm):
 #     class Meta:

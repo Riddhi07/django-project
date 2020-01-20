@@ -16,10 +16,12 @@ urlpatterns =[
     path('editcat/<int:id>', views.editcat),
     path('upcat/<int:id>', views.upcat),
 
+
     path('Delievery/',views.delieverypage,name='delievery'),
     path('deldl/<int:id>',views.deldl),
     path('editdl/<int:id>', views.editdl),
     path('updl/<int:id>', views.updl),
+
 
     path('Variant/',views.variantpage,name='variant'),
     path('delvt/<int:id>',views.delvt),
@@ -28,6 +30,11 @@ urlpatterns =[
 
 
     path('Option/',views.optionpage,name='option'),
+    path('delop/<int:id>',views.delop),
+    path('editop/<int:id>', views.editop),
+    path('upop/<int:id>', views.upop),
+
+
     path('Material/',views.materialpage,name='material'),
     path('Product/',views.productpage,name='product'),
     path('Contact/',views.contactpage,name='contact'),

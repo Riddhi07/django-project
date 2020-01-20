@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant
-from .forms import contactform,categoryform,fieldform,delieveryform,variantform
+from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant,Option
+from .forms import contactform,categoryform,fieldform,delieveryform,variantform,optionform
 from django.http import HttpResponse
 """
 def Compair(request):
@@ -269,7 +269,51 @@ def upvt(request,id):
 
 
 def optionpage(request):
-    return render(request,'option.html')
+    if request.method=='POST':
+        f=optionform(request.POST)
+        if f.is_valid():
+            try:
+                f.save()
+                #return redirect('field.html')
+            except:
+                pass
+    else:
+        f=optionform()
+        fshow=Option.objects.all()
+        return render(request,'option.html',{'f':f,'fshow':fshow})
+    f=optionform()
+    fshow=Option.objects.all()
+    return render(request,'variant.html',{'f':f,'fshow':fshow})
+def delop(request,id):
+    dcn=Option.objects.get(id=id)
+    dcn.delete()
+    return redirect('/Option')
+def editop(request,id):
+    if request.method == "POST":
+        edl = Option.objects.get(id=id)
+        form = optionform(request.POST, instance=edl)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/Option')
+            except:
+                pass
+    else:
+        edl = Option.objects.get(id=id)
+        fshow = Option.objects.all()
+        return render(request,'editop.html',{'edl':edl,'fshow': fshow})
+def upop(request,id):
+    efd = Option.objects.get(id=id)
+    form = optionform(request.POST,instance=efd)
+    if form.is_valid():
+        try:
+            form.save()
+            return redirect('option')
+        except:
+            pass
+    return render(request, 'editop.html', {'edl': efd})
+
+
 def materialpage(request):
     return render(request,'material.html')
 def productpage(request):
