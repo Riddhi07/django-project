@@ -42,8 +42,18 @@ urlpatterns =[
 
 
     path('Product/',views.productpage,name='product'),
-    path('Contact/',views.contactpage,name='contact'),
+    path('delpd/<int:id>',views.delpd),
+    path('editpd/<int:id>', views.editpd),
+    path('uppd/<int:id>', views.uppd),
+
+
     path('Image/',views.imagepage,name='image'),
+    path('delim/<int:id>',views.delim),
+    path('editim/<int:id>', views.editim),
+    path('upim/<int:id>', views.upim),
+
+
+    path('Contact/',views.contactpage,name='contact'),
     path('Payment/',views.paymentpage,name='payment'),
     path('Customer/',views.customerpage,name='customer'),
     path('Order/',views.orderpage,name='order'),

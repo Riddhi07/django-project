@@ -77,20 +77,20 @@ class materialform(forms.ModelForm):
 #             'modelno':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'modelno'})
 #             }
 
-# class imageform(forms.ModelForm):
-#     class Meta:
-#         model=Image
-#         fields='__all__'
-#         widgets={
-#             'image1':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image1'}),
-#             'image2':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image2'}),
-#             'image3':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image3'}),
-#             'image4':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image4'}),
-#             'image5':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image5'}),
-#             'image6':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image6'}),
-#             'image7':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image7'}),
-#             'itemid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'itemid'})
-#             }
+class imageform(forms.ModelForm):
+    class Meta:
+        model=Image
+        fields='__all__'
+        widgets={
+            'image1':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image1'}),
+            'image2':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image2'}),
+            'image3':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image3'}),
+            'image4':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image4'}),
+            'image5':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image5'}),
+            'image6':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image6'}),
+            'image7':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'image7'}),
+            'itemid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'itemid'})
+            }
 
 # class paymethodform(forms.ModelForm):
 #     class Meta:

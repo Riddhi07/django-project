@@ -24,7 +24,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="all-form-element-inner">
-                                                     <form action="#"  method="POST">
+                                                     <form action="/uppd/{{edl.id}}"  method="POST">
 
                                                          {% csrf_token %}
                                                         
@@ -34,7 +34,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">catid</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="text" class="form-control" name="catid" required />
+                                                                    <input type="text" class="form-control" name="catid" value="{{edl.catid}}" required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -44,7 +44,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Heading</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="text" class="form-control" name="heading" required />
+                                                                    <input type="text" class="form-control" name="heading" value="{{edl.heading}}"  required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -54,7 +54,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Subheading</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="email" class="form-control" required name="Subheading"/>
+                                                                    <input type="email" class="form-control" required  value="{{edl.subheading}}" name="Subheading"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -64,7 +64,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">actual price</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="actualprice" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.actualprice}}" name="actualprice" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -75,7 +75,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">discount</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="password" class="form-control" required name="discount"/>
+                                                                    <input type="password" class="form-control" required  value="{{edl.discount}}" name="discount"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -85,7 +85,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Highlight</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="Highlight" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.highlight}}" name="Highlight" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -95,7 +95,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">description</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="description" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.description}}" name="description" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -105,7 +105,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">companyname</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="companyname" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.companyname}}" name="companyname" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -115,7 +115,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">ptype</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="ptype" />
+                                                                    <input type="mobile" class="form-control" required value="{{edl.ptype}}"  name="ptype" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -125,7 +125,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">brand</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="brand" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.brand}}" name="brand" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -135,7 +135,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">optionid</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="optionid" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.optionid}}" name="optionid" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -145,7 +145,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">mid</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="mid" />
+                                                                    <input type="mobile" class="form-control" required value="{{edl.mid}}"  name="mid" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -155,7 +155,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">versionid</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="versionid" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.versionid}}" name="versionid" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -165,7 +165,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">availability</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="availability" />
+                                                                    <input type="mobile" class="form-control" required  value="{{edl.availability}}" name="availability" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -175,7 +175,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">modelno</label>
                                                                 </div>
                                                                 <div class="col-lg-9">
-                                                                    <input type="mobile" class="form-control" required name="modelno" />
+                                                                    <input type="mobile" class="form-control" required value="{{edl.modelno}}"  name="modelno" />
                                                                 </div>
                                                             </div>
                                                         </div>

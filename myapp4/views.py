@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant,Option,Material
-from .forms import contactform,categoryform,fieldform,delieveryform,variantform,optionform,materialform
+from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant,Option,Material,Image
+from .forms import contactform,categoryform,fieldform,delieveryform,variantform,optionform,materialform,imageform
 from django.http import HttpResponse
 """
 def Compair(request):
@@ -360,9 +360,97 @@ def upmt(request,id):
     return render(request, 'editmt.html', {'edl': efd})
 
 def productpage(request):
-    return render(request,'product.html')
+    if request.method=='POST':
+        f=productform(request.POST)
+        if f.is_valid():
+            try:
+                f.save()
+                #return redirect('field.html')
+            except:
+                pass
+    else:
+        f=productform()
+        fshow=Product.objects.all()
+        return render(request,'product.html',{'f':f,'fshow':fshow})
+    f=productform()
+    fshow=Product.objects.all()
+    return render(request,'product.html',{'f':f,'fshow':fshow})
+def delpd(request,id):
+    dcn=Product.objects.get(id=id)
+    dcn.delete()
+    return redirect('/Product')
+def editpd(request,id):
+    if request.method == "POST":
+        edl = Product.objects.get(id=id)
+        form = productform(request.POST, instance=edl)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/Product')
+            except:
+                pass
+    else:
+        edl = Product.objects.get(id=id)
+        fshow = Product.objects.all()
+        return render(request,'editpd.html',{'edl':edl,'fshow': fshow})
+def uppd(request,id):
+    efd = Product.objects.get(id=id)
+    form = productform(request.POST,instance=efd)
+    if form.is_valid():
+        try:
+            form.save()
+            return redirect('product')
+        except:
+            pass
+    return render(request, 'editpd.html', {'edl': efd})
+
+
 def imagepage(request):
-    return render(request,'image.html')
+    if request.method=='POST':
+        f=imageform(request.POST)
+        if f.is_valid():
+            try:
+                f.save()
+                #return redirect('field.html')
+            except:
+                pass
+    else:
+        f=imageform()
+        fshow=Image.objects.all()
+        return render(request,'image.html',{'f':f,'fshow':fshow})
+    f=imageform()
+    fshow=Image.objects.all()
+    return render(request,'image.html',{'f':f,'fshow':fshow})
+def delim(request,id):
+    dcn=Image.objects.get(id=id)
+    dcn.delete()
+    return redirect('/Image')
+def editim(request,id):
+    if request.method == "POST":
+        edl = Image.objects.get(id=id)
+        form = imageform(request.POST, instance=edl)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/Image')
+            except:
+                pass
+    else:
+        edl = Image.objects.get(id=id)
+        fshow = Image.objects.all()
+        return render(request,'editim.html',{'edl':edl,'fshow': fshow})
+def upim(request,id):
+    efd = Image.objects.get(id=id)
+    form = imageform(request.POST,instance=efd)
+    if form.is_valid():
+        try:
+            form.save()
+            return redirect('image')
+        except:
+            pass
+    return render(request, 'editim.html', {'edl': efd})
+    
+
 def paymentpage(request):
     return render(request,'payment.html')
 def customerpage(request):
