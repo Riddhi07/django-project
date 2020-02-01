@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Contact,Field,Paymethod,Product,Category,Delievery,Variant,Option,Material,Image
-from .forms import contactform,categoryform,fieldform,delieveryform,variantform,optionform,materialform,imageform
+from .forms import contactform,categoryform,fieldform,delieveryform,variantform,optionform,materialform,imageform,paymethodform,productform
 from django.http import HttpResponse
 """
 def Compair(request):
@@ -369,12 +369,11 @@ def productpage(request):
             except:
                 pass
     else:
-        f=productform()
+       # f=productform()
         fshow=Product.objects.all()
-        return render(request,'product.html',{'f':f,'fshow':fshow})
-    f=productform()
+        return render(request,'product.html',{'fshow':fshow})
     fshow=Product.objects.all()
-    return render(request,'product.html',{'f':f,'fshow':fshow})
+    return render(request,'product.html',{'fshow':fshow})
 def delpd(request,id):
     dcn=Product.objects.get(id=id)
     dcn.delete()
@@ -452,7 +451,51 @@ def upim(request,id):
     
 
 def paymentpage(request):
-    return render(request,'payment.html')
+    if request.method=='POST':
+        f=paymethodform(request.POST)
+        if f.is_valid():
+            try:
+                f.save()
+                #return redirect('field.html')
+            except:
+                pass
+    else:
+        f=paymethodform()
+        fshow=Paymethod.objects.all()
+        return render(request,'paymethod.html',{'f':f,'fshow':fshow})
+    f=imageform()
+    fshow=Image.objects.all()
+    return render(request,'image.html',{'f':f,'fshow':fshow})
+def delim(request,id):
+    dcn=Image.objects.get(id=id)
+    dcn.delete()
+    return redirect('/Image')
+def editim(request,id):
+    if request.method == "POST":
+        edl = Image.objects.get(id=id)
+        form = imageform(request.POST, instance=edl)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/Image')
+            except:
+                pass
+    else:
+        edl = Image.objects.get(id=id)
+        fshow = Image.objects.all()
+        return render(request,'editim.html',{'edl':edl,'fshow': fshow})
+def upim(request,id):
+    efd = Image.objects.get(id=id)
+    form = imageform(request.POST,instance=efd)
+    if form.is_valid():
+        try:
+            form.save()
+            return redirect('image')
+        except:
+            pass
+    return render(request, 'editim.html', {'edl': efd})
+
+
 def customerpage(request):
     return render(request,'customer.html')
 def orderpage(request):

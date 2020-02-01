@@ -53,10 +53,13 @@ urlpatterns =[
     path('upim/<int:id>', views.upim),
 
 
-    path('Contact/',views.contactpage,name='contact'),
     path('Payment/',views.paymentpage,name='payment'),
+
+
+
     path('Customer/',views.customerpage,name='customer'),
     path('Order/',views.orderpage,name='order'),
+    path('Contact/',views.contactpage,name='contact'),
     path('Contact/',views.contactpage,name='contact'),
 
 ]

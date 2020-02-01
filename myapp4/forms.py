@@ -53,29 +53,25 @@ class materialform(forms.ModelForm):
             'label':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'label'}),
             'value':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'value'})
             }
+class productform(forms.ModelForm):
+    class Meta:
+         model=Product
+         fields='__all__'
+         widgets={
+             'catid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'catid'}),
+             'heading':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'heading'}),
+             'subheading':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'subheading'}),
+             'highlight':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'highlight'}),
 
+             'companyname':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'companyname'}),
+             'ptype':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'type'}),
+             'brand':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'brand'}),
+             'optionid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'optionid'}),
+             'mid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'mid'}),
+             'versionid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'versionid'}),
 
-# class productform(forms.ModelForm):
-#     class Meta:
-#         model=Product
-#         fields='__all__'
-#         widgets={
-#             'catid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'catid'}),
-#             'heading':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'heading'}),
-#             'subheading':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'subheading'}),
-#             'actualprice':forms.IntegerField(),
-#             'discount':forms.IntegerField(),
-#             'highlight':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'highlight'}),
-#             'description':forms.CharField(),
-#             'companyname':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'companyname'}),
-#             'ptype':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'type'}),
-#             'brand':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'brand'}),
-#             'optionid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'optionid'}),
-#             'mid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'mid'}),
-#             'versionid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'versionid'}),            
-#             'availability':forms.BooleanField(),
-#             'modelno':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'modelno'})
-#             }
+             'modelno':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'modelno'})
+             }
 
 class imageform(forms.ModelForm):
     class Meta:
@@ -92,14 +88,14 @@ class imageform(forms.ModelForm):
             'itemid':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'itemid'})
             }
 
-# class paymethodform(forms.ModelForm):
-#     class Meta:
-#         model=Paymethod
-#         fields='__all__'
-#         widgets={
-#             'pmname':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'pmname'}),
-#             'pvalue':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'pvalue'})
-#             }
+class paymethodform(forms.ModelForm):
+    class Meta:
+        model=Paymethod
+        fields='__all__'
+        widgets={
+            'pmname':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'pmname'}),
+            'pvalue':forms.TextInput(attrs={'çlass':'input-xlarge','placeholder':'pvalue'})
+            }
 
 # class customerform(forms.ModelForm):
 #     class Meta:

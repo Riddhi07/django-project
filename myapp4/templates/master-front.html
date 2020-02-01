@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-{% load static %}    <title>Bootshop online Shopping cart</title>
+{% load staticfiles %}
+    <title>Bootshop online Shopping cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -56,7 +57,7 @@
 	<span class="icon-bar"></span>
 </a>
   <div class="navbar-inner">
-    <a class="brand" href="{% url 'index'%}"><img src="{% static 'themes/images/logo.png'%}" alt="Bootsshop"/></a>
+    <a class="brand" href="{% url 'index' %}"><img src="{% static 'themes/images/logo.png' %}" alt="Bootsshop"/></a>
 		<form class="form-inline navbar-search" method="post" action="products" >
 		<input id="srchFld" class="srchTxt" type="text" />
 		  <select class="srchTxt">
